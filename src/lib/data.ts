@@ -62,10 +62,10 @@ export const skills = {
 
 export const skillsRadar = [
   { subject: "Analytics & BI", A: 100, fullMark: 100 },
-  { subject: "Databases", A: 90, fullMark: 100 },
-  { subject: "Programming", A: 85, fullMark: 100 },
+  { subject: "Database", A: 90, fullMark: 100 },
+  { subject: "Coding", A: 85, fullMark: 100 },
   { subject: "Cloud & DevOps", A: 80, fullMark: 100 },
-  { subject: "IT Systems", A: 75, fullMark: 100 },
+  { subject: "Systems", A: 75, fullMark: 100 },
   { subject: "Soft Skills", A: 95, fullMark: 100 },
 ];
 

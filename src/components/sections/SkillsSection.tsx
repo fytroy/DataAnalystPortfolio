@@ -3,7 +3,7 @@
 import { skillsRadar, skillsRich } from "@/lib/data";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { BarChart3, Code2, Database, Cloud, Workflow, FileSpreadsheet, Star } from "lucide-react";
-import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 const iconMap: any = {
     BarChart3: BarChart3,
@@ -32,9 +32,9 @@ export function SkillsSection() {
                     </div>
                 </FadeIn>
 
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                    {/* Skills Grid - takes up 3 cols */}
-                    <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {/* Skills Grid - takes up 1 col */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {skillsRich.map((skill, idx) => {
                             const Icon = iconMap[skill.icon] || Code2;
                             return (
@@ -62,26 +62,33 @@ export function SkillsSection() {
                         })}
                     </div>
 
-                    {/* Radar Chart - takes up 2 cols */}
-                    <div className="lg:col-span-2">
+                    {/* Bar Chart - takes up 1 col */}
+                    <div>
                         <FadeIn delay={0.4}>
-                            <div className="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 aspect-square flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-zinc-900 to-zinc-900" />
-                                <div className="relative w-full h-full">
+                            <div className="bg-zinc-900 rounded-3xl p-6 border border-zinc-800 flex flex-col justify-center h-full min-h-[400px]">
+                                <h3 className="text-xl font-bold text-white mb-6 px-4">Proficiency Levels</h3>
+                                <div className="w-full h-[300px]">
                                     <ResponsiveContainer width="100%" height="100%">
-                                        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={skillsRadar}>
-                                            <PolarGrid stroke="#3f3f46" />
-                                            <PolarAngleAxis dataKey="subject" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
-                                            <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                                            <Radar
-                                                name="Skills"
-                                                dataKey="A"
-                                                stroke="#3b82f6"
-                                                strokeWidth={2}
-                                                fill="#3b82f6"
-                                                fillOpacity={0.3}
+                                        <BarChart
+                                            layout="vertical"
+                                            data={skillsRadar}
+                                            margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
+                                        >
+                                            <XAxis type="number" domain={[0, 100]} hide />
+                                            <YAxis
+                                                dataKey="subject"
+                                                type="category"
+                                                tick={{ fill: '#e4e4e7', fontSize: 13, fontWeight: 500 }}
+                                                width={100}
+                                                axisLine={false}
+                                                tickLine={false}
                                             />
-                                        </RadarChart>
+                                            <Tooltip
+                                                cursor={{ fill: '#27272a' }}
+                                                contentStyle={{ backgroundColor: '#18181b', borderColor: '#27272a', color: '#fff' }}
+                                            />
+                                            <Bar dataKey="A" fill="#3b82f6" radius={4} barSize={20} background={{ fill: '#27272a', radius: 4 }} />
+                                        </BarChart>
                                     </ResponsiveContainer>
                                 </div>
                             </div>
