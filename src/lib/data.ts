@@ -532,6 +532,99 @@ export const archiveProjects = [
   },
 ];
 
+export const labChallenges = [
+  {
+    title: "Optimizing High-Volume Transaction Queries",
+    slug: "optimizing-high-volume-transaction-queries",
+    category: "Database Performance",
+    problem: "A critical daily report query was taking 45 minutes to execute, causing delays in morning briefings. The table contained over 10 million rows with multiple joins.",
+    approach: "Analyzed the execution plan and identified a full table scan on the transaction log table. Created a composite non-clustered index on transaction_date and branch_id. Refactored the query to replace a correlated subquery with a CTE.",
+    tools: ["SQL Server Management Studio", "SQL Execution Plan", "Database Engine Tuning Advisor"],
+    lessons: "Indexing strategies must align with query patterns. CTEs can improve readability and sometimes performance over subqueries.",
+    link: null, // Internal write-up only
+    date: "Oct 2025",
+    fullContent: `
+      <h3>Background</h3>
+      <p>The core banking system generates approximately 500,000 transaction records daily. A legacy stored procedure used for the "Daily Branch Performance" report was taking nearly an hour to run, often timing out or blocking other operations.</p>
+      
+      <h3>Diagnosis</h3>
+      <p>I utilized SQL Server Profiler to capture the exact execution parameters and then analyzed the Execution Plan in SSMS. The plan revealed:</p>
+      <ul>
+        <li>A <strong>Table Scan</strong> on the \`Transactions_Log\` table (10M+ rows).</li>
+        <li>A high-cost <strong>Key Lookup</strong> operation due to a missing include column in an existing index.</li>
+        <li>A correlated subquery that was executing for every row in the result set.</li>
+      </ul>
+
+      <h3>The Fix</h3>
+      <ol>
+        <li><strong>Indexing:</strong> Created a composite non-clustered index on \`(TransactionDate, BranchID)\` and included \`Amount\` and \`TransactionType\` to cover the query requirements.</li>
+        <li><strong>Refactoring:</strong> Rewrote the correlated subquery as a Common Table Expression (CTE) to allow the optimizer to process the aggregation set once.</li>
+        <li><strong>Testing:</strong> Verified the new execution plan showed an <strong>Index Seek</strong> instead of a Scan.</li>
+      </ol>
+
+      <h3>Results</h3>
+      <p>The query execution time dropped from <strong>45 minutes to 42 seconds</strong>, a 98% improvement effectively eliminating the morning delay.</p>
+    `
+  },
+  {
+    title: "Real-time Fraud Detection Dashboard",
+    slug: "real-time-fraud-detection-dashboard",
+    category: "Power BI & Streaming",
+    problem: "Fraud analysts needed to see suspicious transaction patterns in real-time, but the existing report was only updated once a day.",
+    approach: "Set up a Power BI streaming dataset connected to a Python script that monitored the transaction log API. Designed a dashboard with card visuals for immediate alerts and a line chart for trend analysis over the last hour.",
+    tools: ["Power BI Service", "Python (Requests, Pandas)", "REST APIs"],
+    lessons: "Real-time dashboards require a different design philosophy than historical reports—focus on immediate outliers rather than deep aggregation.",
+    link: null,
+    date: "Aug 2025",
+    fullContent: `
+      <h3>The Challenge</h3>
+      <p>Fraudsters often test cards with small amounts before making large purchases. Detecting these "velocity attacks" requires real-time monitoring, but the bank's data warehouse only refreshed overnight.</p>
+
+      <h3>Solution Architecture</h3>
+      <p>I built a lightweight real-time monitoring solution using:</p>
+      <ul>
+        <li><strong>Python Script:</strong> Polled the core banking API every 30 seconds for new transactions flagged with specific high-risk codes.</li>
+        <li><strong>Power BI Streaming Dataset:</strong> The Python script pushed payload data (Timestamp, Branch, Amount, RiskScore) directly to the Power BI Service via API.</li>
+        <li><strong>Live Dashboard:</strong> A dashboard configured to auto-refresh, verifying the API push connection.</li>
+      </ul>
+
+      <h3>Key Visuals</h3>
+      <p>The dashboard focused on speed of interpretation:</p>
+      <ul>
+        <li><strong>Big Number Cards:</strong> Displaying "High Risk Transactions (Last 1 Hour)".</li>
+        <li><strong>Flow Map:</strong> Visualizing the origin of transactions geographically.</li>
+      </ul>
+    `
+  },
+  {
+    title: "Automated Data Cleaning Pipeline",
+    slug: "automated-data-cleaning-pipeline",
+    category: "Python Automation",
+    problem: "Creating the monthly sales report involved manually cleaning and merging 15 different Excel files from various branches, taking 6 hours of manual work.",
+    approach: "Wrote a Python script using Pandas to iterate through the folder, read each Excel file, standardize column names, handle missing values, and merge them into a single master dataset ready for analysis.",
+    tools: ["Python", "Pandas", "OpenPyXL"],
+    lessons: "Automation not only saves time but drastically reduces human error in data preparation tasks.",
+    link: "https://github.com/fytroy/FinancePipeline",
+    date: "June 2024 - 2025",
+    fullContent: `
+       <h3>The Bottleneck</h3>
+       <p>At the end of every month, branch managers would email Excel files with varying formats (merged cells, different headers) to the central team. Collating this took a full working day.</p>
+
+       <h3>The Script</h3>
+       <p>I developed a Python script using the \`pandas\` and \`os\` libraries to:</p>
+       <ol>
+         <li><strong>Scan:</strong> Iterate through a designated directory for .xlsx files.</li>
+         <li><strong>Normalize:</strong> Map different column headers (e.g., "CustID", "CIF", "Client ID") to a standard schema.</li>
+         <li><strong>Clean:</strong> Drop empty rows, fill missing numerical values with 0, and validate date formats.</li>
+         <li><strong>Consolidate:</strong> Append all clean dataframes into a master list and export to a single CSV.</li>
+       </ol>
+
+       <h3>Outcome</h3>
+       <p>The process now takes <strong>14 seconds</strong>. The team uses the saved time for deeper analysis of the sales data rather than just preparing it.</p>
+    `
+  }
+];
+
 export const education = [
   {
     degree: "Bachelor of Science in Information Technology",
