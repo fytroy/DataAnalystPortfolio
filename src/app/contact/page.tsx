@@ -32,7 +32,7 @@ export default function ContactPage() {
                             name="name"
                             id="name"
                             required
-                            className="w-full sm:w-1/2 p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-100 transition-all"
+                            className="w-full p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-100 transition-all"
                             placeholder="Rodney Gitonga"
                         />
                         {state?.errors?.name && (

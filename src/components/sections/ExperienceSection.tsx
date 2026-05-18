@@ -51,10 +51,10 @@ export function ExperienceSection() {
 
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">{job.role}</h3>
-                                    <div className="flex items-center gap-2 text-sm text-zinc-500 mb-4">
-                                        {(job as any).link ? (
+                                    <div className="flex flex-wrap items-center gap-2 text-sm text-zinc-500 mb-4">
+                                        {job.link ? (
                                             <a
-                                                href={(job as any).link}
+                                                href={job.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors hover:underline"

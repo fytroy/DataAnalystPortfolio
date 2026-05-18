@@ -19,41 +19,11 @@ export function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <button className="fixed top-8 right-8 z-50 flex items-center justify-center p-3 rounded-full bg-zinc-100 text-zinc-900 opacity-0" aria-label="Toggle Theme" />
+            <button className="p-2 rounded-full opacity-0 pointer-events-none" aria-label="Toggle Theme">
+                <Sun size={18} />
+            </button>
         );
     }
-
-    const toggleTheme = async () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-
-        // Check if View Transitions are supported
-        if (!document.startViewTransition) {
-            setTheme(newTheme);
-            document.documentElement.classList.toggle("dark", newTheme === "dark");
-            // Manual toggle
-            if (newTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            return;
-        }
-
-        // Cinema Effect Logic
-        const transition = document.startViewTransition(() => {
-            setTheme(newTheme);
-            if (newTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-
-        // We can interact with the transition here if needed, but CSS handles the clip-path easiest if set up globally.
-        // However, to do the "circle expansion from button", we need to pass the click coordinates.
-        // For now, let's implement the basic view transition which is already "cinematic" if customized.
-        // To do the circle expand, we'd need to grab the click event clientX/Y.
-    };
 
     const toggleThemeAtPosition = (e: React.MouseEvent<HTMLButtonElement>) => {
         const x = e.clientX;

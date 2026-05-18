@@ -1,6 +1,6 @@
 "use client";
 
-import { projects } from "@/lib/data";
+import { projects, archiveProjects } from "@/lib/data";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
         <div className="min-h-screen pt-32 pb-24 max-w-7xl mx-auto">
             <div className="px-8 md:px-24 mb-24">
                 <FadeIn>
-                    <h1 className="text-6xl font-bold tracking-tighter mb-6">Selected Works</h1>
+                    <h1 className="text-4xl sm:text-6xl font-bold tracking-tighter mb-6">Selected Works</h1>
                     <p className="text-xl text-zinc-500 max-w-2xl">
                         A collection of case studies focusing on Data Analytics, BI, and Software Engineering.
                     </p>
@@ -100,8 +100,7 @@ export default function ProjectsPage() {
                     <h2 className="text-3xl font-bold tracking-tight mb-12">Other Noteworthy Projects</h2>
                 </FadeIn>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Dynamic import to avoid circular dep issues if any, but standard import is fine */}
-                    {require("@/lib/data").archiveProjects?.map((project: any, idx: number) => (
+                    {archiveProjects.map((project, idx) => (
                         <FadeIn key={idx} delay={idx * 0.05}>
                             <a
                                 href={project.link}
@@ -119,7 +118,7 @@ export default function ProjectsPage() {
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    {project.tech.map((t: string) => (
+                                    {project.tech.map((t) => (
                                         <span key={t} className="text-xs font-mono text-zinc-500 dark:text-zinc-500">
                                             #{t}
                                         </span>

@@ -1,19 +1,18 @@
-"use client";
-
 import { labChallenges } from "@/lib/data";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { ArrowLeft, Calendar, Tag, Wrench } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 
-export default function LabChallengeDetail() {
-    const params = useParams();
-    const slug = params.slug as string;
+export function generateStaticParams() {
+    return labChallenges.map((c) => ({ slug: c.slug }));
+}
 
-    const challenge = labChallenges.find(c => c.slug === slug);
+export default function LabChallengeDetail({ params }: { params: { slug: string } }) {
+    const challenge = labChallenges.find((c) => c.slug === params.slug);
 
     if (!challenge) {
-        return notFound();
+        notFound();
     }
 
     return (
@@ -37,7 +36,7 @@ export default function LabChallengeDetail() {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 mb-8 max-w-4xl">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 mb-8 max-w-4xl">
                         {challenge.title}
                     </h1>
 
@@ -80,22 +79,22 @@ export default function LabChallengeDetail() {
                                 <h3>Key Lesson</h3>
                             </div>
                             <p className="text-indigo-900 dark:text-indigo-200 italic leading-relaxed">
-                                "{challenge.lessons}"
+                                &ldquo;{challenge.lessons}&rdquo;
                             </p>
                         </div>
                     </div>
 
                     {/* Main Content */}
                     <div className="lg:col-span-8">
-                        <div className="prose prose-lg dark:prose-invert max-w-none 
-                            prose-headings:font-bold prose-headings:tracking-tight 
+                        <div className="prose prose-lg dark:prose-invert max-w-none
+                            prose-headings:font-bold prose-headings:tracking-tight
                             prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
                             prose-p:leading-relaxed prose-p:text-zinc-600 dark:prose-p:text-zinc-400
                             prose-li:text-zinc-600 dark:prose-li:text-zinc-400
                             prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100
                             prose-code:bg-zinc-100 dark:prose-code:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm prose-code:font-semibold prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:before:content-none prose-code:after:content-none
-                         ">
-                            <div dangerouslySetInnerHTML={{ __html: challenge.fullContent || "" }} />
+                        ">
+                            <div dangerouslySetInnerHTML={{ __html: challenge.fullContent ?? "" }} />
                         </div>
                     </div>
                 </div>

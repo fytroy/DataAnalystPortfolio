@@ -10,7 +10,7 @@ export default function AboutPage() {
             {/* Bio Section */}
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
                 <FadeIn>
-                    <h1 className="text-6xl font-bold tracking-tighter mb-8">About Me</h1>
+                    <h1 className="text-4xl sm:text-6xl font-bold tracking-tighter mb-8">About Me</h1>
                     <div className="prose dark:prose-invert text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4">
                         {personalInfo.about.split('\n').map((para, i) => (
                             <p key={i}>{para}</p>
@@ -64,20 +64,18 @@ export default function AboutPage() {
                                 <span className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 border-4 border-white dark:border-zinc-950" />
                                 <span className="block text-sm font-mono text-zinc-500 uppercase tracking-widest mb-1">{job.period}</span>
                                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{job.role}</h3>
-                                {
-                                    (job as any).link ? (
-                                        <a
-                                            href={(job as any).link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-zinc-500 font-medium mb-4 block hover:text-zinc-900 dark:hover:text-white transition-colors hover:underline"
-                                        >
-                                            {job.company}
-                                        </a>
-                                    ) : (
-                                        <span className="text-zinc-500 font-medium mb-4 block">{job.company}</span>
-                                    )
-                                }
+                                {job.link ? (
+                                    <a
+                                        href={job.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-zinc-500 font-medium mb-4 block hover:text-zinc-900 dark:hover:text-white transition-colors hover:underline"
+                                    >
+                                        {job.company}
+                                    </a>
+                                ) : (
+                                    <span className="text-zinc-500 font-medium mb-4 block">{job.company}</span>
+                                )}
                                 <ul className="list-disc list-outside ml-4 space-y-1 text-zinc-600 dark:text-zinc-400">
                                     {job.description.map((desc, i) => (
                                         <li key={i}>{desc}</li>

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "PowerShell(Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd \"c:\\\\Users\\\\rodney\\\\Desktop\\\\a\\\\DataAnalystPortfolio\"; npm run dev' -WindowStyle Normal)"
+    ]
+  }
+}

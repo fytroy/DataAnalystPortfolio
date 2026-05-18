@@ -114,7 +114,15 @@ export const skillsRich = [
   },
 ];
 
-export const experience = [
+interface ExperienceItem {
+  role: string;
+  company: string;
+  link?: string;
+  period: string;
+  description: string[];
+}
+
+export const experience: ExperienceItem[] = [
   {
     role: "Data Analytics Officer",
     company: "GULF AFRICAN BANK",

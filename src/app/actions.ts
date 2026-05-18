@@ -25,11 +25,9 @@ export async function submitContact(prevState: any, formData: FormData) {
         };
     }
 
-    // Simulate delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Here you would integrate Resend / SendGrid / Nodemailer
-    console.log("Contact Form Submitted:", validated.data);
+    // TODO: integrate Resend / SendGrid / Nodemailer here
 
     return {
         success: true,

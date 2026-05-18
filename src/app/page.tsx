@@ -26,10 +26,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between min-h-[80vh] px-8 md:px-24 max-w-7xl mx-auto w-full gap-12">
+      <section className="flex flex-col md:flex-row items-center justify-between min-h-[80vh] px-6 md:px-24 max-w-7xl mx-auto w-full gap-8 md:gap-12 pt-10 md:pt-0">
         <div className="flex-1 flex flex-col justify-center">
           <FadeIn delay={0.1}>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-zinc-900 dark:text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter text-zinc-900 dark:text-white mb-6">
               {personalInfo.name}
             </h1>
           </FadeIn>
@@ -73,7 +73,7 @@ export default function Home() {
           </FadeIn>
         </div>
 
-        <FadeIn delay={0.4} className="flex-1 w-full max-w-md md:max-w-xl relative aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+        <FadeIn delay={0.4} className="flex-1 w-full max-w-xs sm:max-w-md md:max-w-xl relative aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
           {/* Using standard img for simplicity with local file, Next/Image could also be used but requires sizing */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -85,7 +85,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Grid */}
-      <section className="px-8 md:px-24 pb-24 max-w-7xl mx-auto w-full">
+      <section className="px-6 md:px-24 pb-24 max-w-7xl mx-auto w-full">
         <FadeIn>
           <div className="flex items-end justify-between mb-12 border-b border-zinc-200 pb-4 dark:border-zinc-800">
             <h3 className="text-xl font-medium tracking-tight">Selected Work</h3>
@@ -132,10 +132,10 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      < ExperienceSection />
+      <ExperienceSection />
 
       {/* Skills Section */}
-      < SkillsSection />
+      <SkillsSection />
     </div >
   );
 }
