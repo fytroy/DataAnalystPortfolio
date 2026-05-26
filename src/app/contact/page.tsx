@@ -50,7 +50,7 @@ export default function ContactPage() {
                             id="email"
                             required
                             className="w-full p-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-100 transition-all"
-                            placeholder="rodney@example.com"
+                            placeholder="rodneyroygitonga@gmail.com"
                         />
                         {state?.errors?.email && (
                             <p className="text-red-500 text-sm">{state.errors.email[0]}</p>

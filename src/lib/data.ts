@@ -2,15 +2,15 @@ import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export const personalInfo = {
   name: "Rodney Gitonga",
-  role: "Data Analytics Officer & BI Specialist",
+  role: "Data Analytics & IT Specialist",
   email: "rodneyroygitonga@gmail.com",
   phone: "0705762775",
   location: "Nairobi, Kenya",
-  about: "I am a Data Analytics Officer specializing in transforming complex financial and operational data into actionable business insights to enhance operational efficiency. My expertise is focused on the intersection of data visualization, SQL optimization, and business process automation within the financial sector. My core mission is to drive data-informed decision-making by architecting robust SQL views and developing dynamic Power BI dashboards.",
-  shortBio: "Data Analytics Officer & BI Specialist transforming financial data into actionable insights. I architect robust SQL solutions and build dynamic Power BI dashboards to drive operational efficiency.",
+  about: "I am a Data & IT Specialist specializing in transforming complex financial and operational data into actionable business insights to enhance operational efficiency. My expertise is focused on the intersection of data visualization, SQL optimization, and business process automation within the financial sector. My core mission is to drive data-informed decision-making by architecting robust SQL views and developing dynamic Power BI dashboards.",
+  shortBio: "Data Analytics & IT Specialist transforming financial data into actionable insights. I architect robust SQL solutions and build dynamic Power BI dashboards to drive operational efficiency.",
   social: {
     github: "https://github.com/fytroy",
-    linkedin: "https://www.linkedin.com/in/rodney-gitonga-9299a41ba/",
+    linkedin: "https://www.linkedin.com/in/rodney-roy-gitonga-b512ab40b/",
     email: "mailto:rodneyroygitonga@gmail.com",
     instagram: "https://www.instagram.com/fyt.roy/",
     devto: "https://dev.to/fytroy",
@@ -123,11 +123,27 @@ interface ExperienceItem {
 }
 
 export const experience: ExperienceItem[] = [
-  {
+    {
+    role: "Data & IT Support",
+    company: "GULF AFRICAN BANK",
+    link: "https://gulfafricanbank.com/",
+    period: "March 2026 – Present",
+    description: [
+      "Translated complex business requirements into functional technical specifications, delivering high-impact Power BI reports and dashboards for finance and business stakeholders.",
+      "Conducted advanced exploratory data analysis (EDA) using SQL (aggregations, joins, transformations) to extract actionable insights for executive decision-making.",
+      "Deployed statistical models on large-scale datasets to drive predictive analytics and enhance business intelligence capabilities.",
+      "Architected and maintained Canvas and Model-Driven applications within the Microsoft Power Platform to automate critical internal workflows.",
+      "Engineered seamless Power Automate flows to integrate data sources, apps, and services, significantly improving internal operational efficiency.",
+      "Troubleshot and resolved complex issues related to report performance, data refresh latency, and app functionality, including weekly analysis of remote query execution times.",
+      "Collaborated directly with the Data Engineer and ICT teams to design robust analytics architectures, ensuring daily data loads were complete, accurate, and consistent.",
+      "Enforced strict data governance, maintaining compliance with internal banking policies and regulatory standards across all data pipelines.",
+      "Authored comprehensive technical documentation (data dictionaries, user guides, solution designs) and provided hands-on training to upskill end-users on Power BI and Power Apps.",
+    ],
+  },{
     role: "Data Analytics Officer",
     company: "GULF AFRICAN BANK",
     link: "https://gulfafricanbank.com/",
-    period: "September 2025 – Present",
+    period: "September 2025 – March 2026",
     description: [
       "Managed and optimized ETL (Extract, Transform, Load) processes to ensure the timely and accurate delivery of data for reporting and analysis.",
       "Designed and built Power Apps solutions to streamline operations and automate workflows across different bank departments.",
@@ -139,7 +155,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "Data Analytics Engineer Intern",
+    role: "Data Analytics Engineer",
     company: "GULF AFRICAN BANK",
     link: "https://gulfafricanbank.com/",
     period: "July 2025 – September 2025",
@@ -150,7 +166,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "IT Support Specialist Intern",
+    role: "IT Support Specialist",
     company: "GULF AFRICAN BANK",
     link: "https://gulfafricanbank.com/",
     period: "January 2025 – July 2025",
@@ -648,6 +664,10 @@ export const education = [
 
 export const certifications = [
   {
+    name: "Data & AI",
+    issuer: "CyberShujaa Academy",
+    link: "https://www.datacamp.com/certificate/DEA0018680202658",
+  },  {
     name: "Associate Data Engineer",
     issuer: "DataCamp",
     link: "https://www.datacamp.com/certificate/DEA0018680202658",
@@ -675,12 +695,12 @@ export const certifications = [
   {
     name: "Generative AI Fundamentals",
     issuer: "Databricks Academy",
-    link: "https://credentials.databricks.com/f9ee6c6b-656c-4ed6-824b-35cc6de2c368",
+    link: "https://credentials.databricks.com/f9ee6c6b-656c-4ed6-824b-35cc6de2c368#acc.BR8cvpaK",
   },
   {
-    name: "Academy Accreditation - Databricks Fundamentals",
+    name: "Databricks Fundamentals",
     issuer: "Databricks Academy",
-    link: "https://credentials.databricks.com/3e7f1bd8-fcac-4db0-8a11-b4d361830069",
+    link: "https://credentials.databricks.com/3e7f1bd8-fcac-4db0-8a11-b4d361830069#acc.84ThexMH",
   },
   {
     name: "Data Analytics Essentials",
@@ -690,7 +710,7 @@ export const certifications = [
   {
     name: "Power BI for Beginners",
     issuer: "Simplilearn",
-    link: "https://drive.google.com/file/d/1J-nCV80RxXlgP7b_zCMsITSDl3LT8aFy/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1NEcyuWEvTU_j033JMO7G_taqFu13lpTF/view",
   },
   {
     name: "SQL for Data Analysis",
@@ -715,17 +735,17 @@ export const certifications = [
   {
     name: "Mastery Certified Data Management Professional (CDMP) -Associate",
     issuer: "Udemy Academy",
-    link: "https://drive.google.com/file/d/1ObH4wdHq1NVnHWnnJv6NovZ3FVog-wve/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1UijXfFLthaCtFvz_Kmo7eOWpKBbAnCkz/view",
   },
   {
     name: "Introduction to ITIL® V4",
     issuer: "Simplilearn",
-    link: "https://drive.google.com/file/d/1PtWjfocJ8Dd2vZQkkHk0gknPDpmkZ8bv/view?usp=sharing/",
+    link: "https://drive.google.com/file/d/1wQ6FP-_qXzTUqu0I6RE_4ppv0PcWGQkj/view?usp=sharing",
   },
   {
     name: "The AWS Technical Essentials",
     issuer: "Simplilearn",
-    link: "https://drive.google.com/file/d/1ahoqx2OF3KL0hbaVrZOdJ6xNmBVMGMiy/view?usp=sharing/",
+    link: "https://drive.google.com/file/d/1_ydZq9bnQX-BKS2LJI7oYk5FMhIfm3Mr/view?usp=sharing",
   },
   {
     name: "Endpoint Management & Security",
@@ -740,7 +760,7 @@ export const certifications = [
   {
     name: "CGRC- Governance, Risk and Compliance Certification",
     issuer: "Udemy Academy",
-    link: "https://drive.google.com/file/d/1HmertXw73IUQ6pjRLdPyZtcBreRQYxSn/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1UijXfFLthaCtFvz_Kmo7eOWpKBbAnCkz/view",
   },
   {
     name: "Digital Safety and Security Awareness",
