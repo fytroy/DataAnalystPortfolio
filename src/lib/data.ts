@@ -281,9 +281,42 @@ export const projects = [
     link: "https://github.com/fytroy/Banking_api",
     image: "/images/code.png",
   },
+  {
+    title: "SPY Golden Cross Analyzer",
+    category: "Financial Analytics",
+    description:
+      "Evaluates the SPDR S&P 500 ETF (SPY) using Simple Moving Averages (50-day & 200-day SMAs) to identify Golden Cross buy/sell signals.",
+    tech: ["Python", "SQL", "Financial Analysis"],
+    link: "https://github.com/fytroy/FinancialAnalysisProject.mavenanalytics.io_data_drills",
+    image: "/images/dashboard.png",
+  },
 ];
 
 export const archiveProjects = [
+  {
+    title: "NetworkReport.py",
+    description: "A Python utility to monitor network status and compile automated health reports.",
+    tech: ["Python", "Networking", "Automation"],
+    link: "https://github.com/fytroy/NetworkReport.py",
+  },
+  {
+    title: "NodejsReleaseScraper.py",
+    description: "A Python script that scrapes the official Node.js releases and parses version history.",
+    tech: ["Python", "Web Scraping", "Automation"],
+    link: "https://github.com/fytroy/NodejsReleaseScraper.py",
+  },
+  {
+    title: "DailySystemReporter.py",
+    description: "Automated daily system auditing and email reporting script for server diagnostics.",
+    tech: ["Python", "System Administration", "Automation"],
+    link: "https://github.com/fytroy/DailySystemReporter.py",
+  },
+  {
+    title: "3dDesign.web",
+    description: "A web-based interactive 3D design showcase built with HTML and modern rendering techniques.",
+    tech: ["HTML", "CSS", "WebGL"],
+    link: "https://github.com/fytroy/3dDesign.web",
+  },
   {
     title: "LuxeMetricDashboard",
     description: "A luxury metric tracking dashboard for high-end analytics.",
@@ -786,5 +819,35 @@ export const certifications = [
     name: "JavaScript Essentials 2",
     issuer: "Cisco Academy",
     link: "https://www.credly.com/badges/8d946ce0-f610-4ccc-ac72-5cddb9009eb8/",
+  },
+  {
+    name: "Power BI Beginner to Pro Workshop",
+    issuer: "Pragmatic Works",
+    link: "https://drive.google.com/file/d/1NEcyuWEvTU_j033JMO7G_taqFu13lpTF/view",
+  },
+  {
+    name: "SQL Analytics and BI on Databricks",
+    issuer: "Databricks Academy",
+    link: "https://credentials.databricks.com/f9ee6c6b-656c-4ed6-824b-35cc6de2c368#acc.BR8cvpaK",
+  },
+  {
+    name: "Python Essentials 1",
+    issuer: "Cisco Academy",
+    link: "https://www.credly.com/badges/a90d20ae-1029-407f-b2a0-0c4ddf7b0c65/",
+  },
+  {
+    name: "Python Essentials 2",
+    issuer: "Cisco Academy",
+    link: "https://www.credly.com/badges/a90d20ae-1029-407f-b2a0-0c4ddf7b0c65/",
+  },
+  {
+    name: "Python for Data Analysis",
+    issuer: "Cisco Academy",
+    link: "https://www.credly.com/badges/a90d20ae-1029-407f-b2a0-0c4ddf7b0c65/",
+  },
+  {
+    name: "Power BI for Beginners",
+    issuer: "Cisco Academy",
+    link: "https://www.credly.com/badges/a90d20ae-1029-407f-b2a0-0c4ddf7b0c65/",
   }
 ];
